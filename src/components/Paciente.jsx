@@ -3,6 +3,11 @@ import Swal from "sweetalert2";
 const Paciente = ({ paciente, setPaciente, eliminarP }) => {
   const { nombre, dueño, email, fecha, sintomas, id } = paciente;
 
+  const handleEditar = () => {
+    Swal.fire("You are editing the patient");
+    setPaciente(paciente);
+  };
+
   const handleEliminar = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -50,7 +55,7 @@ const Paciente = ({ paciente, setPaciente, eliminarP }) => {
         <button
           type="button"
           className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 text-white font-bold uppercase rounded-lg"
-          onClick={() => setPaciente(paciente)}
+          onClick={handleEditar}
         >
           Edit
         </button>
